@@ -10,7 +10,7 @@ function CityList({ cities, isLoading }) {
   if (!cities.length)
     return (
       <Message
-        message={`Now country slected to showcase. Please select a country on the map.`}
+        message={`No city slected to showcase. Please select a city on the map.`}
       />
     );
 
