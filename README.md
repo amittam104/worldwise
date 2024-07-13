@@ -1,6 +1,6 @@
-# React + Vite
+# WorldWise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Worldwise is an application where you can save the cities and countries you have visited.
 
 Currently, two official plugins are available:
 
