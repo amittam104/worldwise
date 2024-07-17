@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useCities } from "../contexts/CitiesContext";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -27,9 +30,13 @@ function Form() {
   const [isLoadingGeolocation, setIsLoadingGeolocation] = useState(false);
   const [emoji, setEmoji] = useState("");
   const [geolocationError, setGeolocationError] = useState("");
+  const { createCity, isLoading } = useCities();
+  const navigate = useNavigate();
 
   useEffect(
     function () {
+      if (!lat && !lng) return;
+
       async function getClickedPosition() {
         try {
           setIsLoadingGeolocation(true);
@@ -61,10 +68,32 @@ function Form() {
 
   if (geolocationError) return <Message message={geolocationError} />;
 
+  if (!lat && !lng)
+    <Message message="Start by clicking somewhere on the map." />;
+
   if (isLoadingGeolocation) return <Spinner />;
 
+  async function handleAddNewCity(e) {
+    e.preventDefault();
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+
+    await createCity(newCity);
+    navigate("/app/cities");
+  }
+
   return (
-    <form className={styles.form}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleAddNewCity}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -77,11 +106,7 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
-          id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        />
+        <DatePicker selected={date} onChange={(date) => setDate(date)} />
       </div>
 
       <div className={styles.row}>
