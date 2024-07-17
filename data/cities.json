@@ -37,42 +37,6 @@
       "id": "9844654654"
     },
     {
-      "id": "e07c",
-      "cityName": "Tomar",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-07-17T12:57:13.586Z",
-      "notes": "",
-      "position": {
-        "lat": "39.59193232984369",
-        "lng": "-8.283691406250002"
-      }
-    },
-    {
-      "id": "4ab1",
-      "cityName": "Monaco",
-      "country": "Monaco",
-      "emoji": "🇲🇨",
-      "date": "2024-07-17T13:01:27.674Z",
-      "notes": "monaco khush hua",
-      "position": {
-        "lat": "43.71156424665853",
-        "lng": "7.443237304687501"
-      }
-    },
-    {
-      "id": "d68d",
-      "cityName": "Castelo Branco",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-07-17T13:08:10.368Z",
-      "notes": "dfsd",
-      "position": {
-        "lat": "39.82119422647455",
-        "lng": "-7.492675781250001"
-      }
-    },
-    {
       "id": "e54c",
       "cityName": "Pune",
       "country": "India",
@@ -82,18 +46,6 @@
       "position": {
         "lat": "18.51998115813955",
         "lng": "73.85421752929689"
-      }
-    },
-    {
-      "id": "6c3c",
-      "cityName": "Mumbai",
-      "country": "India",
-      "emoji": "🇮🇳",
-      "date": "2024-07-17T13:11:01.647Z",
-      "notes": "apli mumbai",
-      "position": {
-        "lat": "19.086777795661845",
-        "lng": "72.87643432617189"
       }
     }
   ]

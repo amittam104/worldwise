@@ -20,10 +20,16 @@ const flagemojiToPNG = (flag) => {
 };
 
 function CityItem({ city }) {
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
   const { cityName, emoji, date, id, position } = city;
 
   const { lat, lng } = position;
+
+  function handleClick(e) {
+    e.preventDefault();
+
+    deleteCity(id);
+  }
 
   return (
     <li>
@@ -36,7 +42,9 @@ function CityItem({ city }) {
         <span className={styles.emoji}>{flagemojiToPNG(emoji)}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>({formatDate(date)})</time>
-        <div className={styles.deleteBtn}>&times;</div>
+        <div className={styles.deleteBtn} onClick={handleClick}>
+          &times;
+        </div>
       </Link>
     </li>
   );
